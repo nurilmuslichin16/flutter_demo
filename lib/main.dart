@@ -10,82 +10,47 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.green,
-        body: Container(
-          margin: EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
-                child: Text(
-                  "Login Page",
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.white,
-                      fontFamily: "Roboto",
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              Card(
-                elevation: 5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return MaterialApp(home: MainPage());
+  }
+}
+
+class MainPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Color(0xff28df99), Color(0xff2ec1ac)],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter)),
+          ),
+          Center(
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: MediaQuery.of(context).size.height * 0.7,
+              child: Card(
+                elevation: 10,
+                child: Stack(
                   children: [
-                    Container(
-                      margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            fillColor: Colors.green[50],
-                            filled: true,
-                            labelText: "Username",
-                            prefixIcon: Icon(Icons.person),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(0))),
-                        maxLength: 10,
-                        controller: usernameController,
-                        onChanged: (value) {},
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            fillColor: Colors.green[50],
-                            filled: true,
-                            labelText: "Password",
-                            prefixIcon: Icon(Icons.lock),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(0))),
-                        obscureText: true,
-                        controller: passwordController,
-                        onChanged: (value) {},
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 20),
-                      child: SizedBox(
-                        width: 325,
-                        child: RaisedButton(
-                            child: Text(
-                              "Login",
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
-                            color: Colors.green,
-                            onPressed: () {}),
+                    Opacity(
+                      opacity: 0.7,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    "https://www.toptal.com/designers/subtlepatterns/patterns/memphis-mini.png"),
+                                fit: BoxFit.cover)),
                       ),
                     )
                   ],
                 ),
-              )
-            ],
-          ),
-        ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
