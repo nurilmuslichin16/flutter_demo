@@ -1,4 +1,4 @@
-import 'package:aplikasi_demo/ContohPage.dart';
+import 'package:aplikasi_demo/LoginPage.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -119,8 +119,9 @@ class _MainPageState extends State<MainPage> {
                                   onPressed: () {
                                     Navigator.push(context,
                                         MaterialPageRoute(builder: (context) {
-                                      return ContohPage();
+                                      return LoginPage();
                                     }));
+                                    // Navigator.pop(context);
                                   }),
                             ),
                           )

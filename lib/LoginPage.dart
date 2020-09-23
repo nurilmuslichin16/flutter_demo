@@ -163,6 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                                     MaterialPageRoute(builder: (context) {
                                   return ContohPage();
                                 }));
+                                // Navigator.pop(context);
                               },
                               child: Center(
                                 child: Text(
@@ -186,14 +187,18 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       FloatingActionButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         mini: true,
                         elevation: 0,
                         child: Image(image: AssetImage("assets/fb_icon.webp")),
                       ),
                       FloatingActionButton(
                         backgroundColor: Colors.transparent,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         mini: true,
                         elevation: 0,
                         child:
