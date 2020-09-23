@@ -1,8 +1,5 @@
+import 'package:aplikasi_demo/ContohPage.dart';
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(LoginPage());
-}
 
 class LoginPage extends StatefulWidget {
   @override
@@ -164,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                               onTap: () {
                                 Navigator.push(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return LoginPage();
+                                  return ContohPage();
                                 }));
                               },
                               child: Center(

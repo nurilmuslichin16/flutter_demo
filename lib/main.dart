@@ -1,5 +1,4 @@
 import 'package:aplikasi_demo/LoginPage.dart';
-import 'package:aplikasi_demo/MainPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
