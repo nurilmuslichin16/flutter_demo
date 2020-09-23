@@ -1,21 +1,21 @@
-import 'package:aplikasi_demo/ContohPage.dart';
-import 'package:aplikasi_demo/RegisterPage.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   double getSmallDiameter(BuildContext context) =>
-      MediaQuery.of(context).size.width * 2 / 3;
+      MediaQuery.of(context).size.width * 1 / 3;
 
   double getBigDiameter(BuildContext context) =>
-      MediaQuery.of(context).size.width * 7 / 8;
+      MediaQuery.of(context).size.width * 9 / 8;
 
+  TextEditingController cUsername = TextEditingController();
   TextEditingController cEmail = TextEditingController();
   TextEditingController cPassword = TextEditingController();
+  TextEditingController cKonfirmPassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,8 @@ class _LoginPageState extends State<LoginPage> {
       body: Stack(
         children: [
           Positioned(
-            right: -getSmallDiameter(context) / 3,
-            top: -getSmallDiameter(context) / 3,
+            right: -115,
+            top: -115,
             child: Hero(
               tag: "LKecil",
               child: Container(
@@ -41,15 +41,15 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Positioned(
-            left: -getBigDiameter(context) / 4,
-            top: -getBigDiameter(context) / 4,
+            left: 0,
+            top: 0,
             child: Hero(
               tag: "LBesar",
               child: Container(
                 width: getBigDiameter(context),
                 height: getBigDiameter(context),
                 decoration: BoxDecoration(
-                    shape: BoxShape.circle,
+                    shape: BoxShape.rectangle,
                     gradient: LinearGradient(
                         colors: [Color(0xff2ec1ac), Color(0xff28df99)],
                         begin: Alignment.topCenter,
@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Container(
               child: Column(children: [
                 Text(
-                  "Halaman Login",
+                  "Halaman Registrasi",
                   style: TextStyle(
                       color: Colors.white,
                       fontFamily: "Roboto",
@@ -90,15 +90,15 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Positioned(
-            right: -230,
-            bottom: -230,
+            right: 0,
+            bottom: -200,
             child: Hero(
               tag: "LTrans",
               child: Container(
                 width: getBigDiameter(context),
                 height: getBigDiameter(context),
                 decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: Color(0xffc5fad9)),
+                    shape: BoxShape.rectangle, color: Color(0xffc5fad9)),
               ),
             ),
           ),
@@ -111,10 +111,23 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.white,
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(5)),
-                  margin: EdgeInsets.fromLTRB(20, 300, 20, 10),
+                  margin: EdgeInsets.fromLTRB(20, 150, 20, 10),
                   padding: EdgeInsets.fromLTRB(10, 0, 10, 25),
                   child: Column(
                     children: [
+                      TextField(
+                        controller: cUsername,
+                        decoration: InputDecoration(
+                            icon: Icon(
+                              Icons.person,
+                              color: Color(0xff2ec1ac),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Color(0xff2ec1ac))),
+                            labelText: "Username: ",
+                            labelStyle: TextStyle(color: Color(0xff2ec1ac))),
+                      ),
                       TextField(
                         controller: cEmail,
                         decoration: InputDecoration(
@@ -142,33 +155,33 @@ class _LoginPageState extends State<LoginPage> {
                             labelText: "Password: ",
                             labelStyle: TextStyle(color: Color(0xff2ec1ac))),
                       ),
+                      TextField(
+                        controller: cPassword,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                            icon: Icon(
+                              Icons.lock,
+                              color: Color(0xff2ec1ac),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Color(0xff2ec1ac))),
+                            labelText: "Password: ",
+                            labelStyle: TextStyle(color: Color(0xff2ec1ac))),
+                      )
                     ],
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 22, 20),
-                    child: Text(
-                      "LUPA PASSWORD?",
-                      style: TextStyle(
-                          fontFamily: "Roboto",
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                          color: Color(0xff2ec1ac)),
-                    ),
                   ),
                 ),
                 Hero(
                   tag: "Button",
                   child: Container(
-                    margin: EdgeInsets.fromLTRB(25, 10, 25, 0),
+                    margin: EdgeInsets.fromLTRB(25, 20, 25, 0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
                           height: 40,
-                          width: MediaQuery.of(context).size.width * 0.5,
+                          width: MediaQuery.of(context).size.width * 0.85,
                           child: Container(
                             child: Material(
                               borderRadius: BorderRadius.circular(20),
@@ -177,15 +190,15 @@ class _LoginPageState extends State<LoginPage> {
                                 borderRadius: BorderRadius.circular(20),
                                 splashColor: Colors.white38,
                                 onTap: () {
-                                  Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) {
-                                    return ContohPage();
-                                  }));
-                                  // Navigator.pop(context);
+                                  // Navigator.push(context,
+                                  //     MaterialPageRoute(builder: (context) {
+                                  //   return ContohPage();
+                                  // }));
+                                  Navigator.pop(context);
                                 },
                                 child: Center(
                                   child: Text(
-                                    "Masuk",
+                                    "Registrasi",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold),
@@ -204,27 +217,6 @@ class _LoginPageState extends State<LoginPage> {
                                     end: Alignment.bottomCenter)),
                           ),
                         ),
-                        FloatingActionButton(
-                          heroTag: null,
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          mini: true,
-                          elevation: 0,
-                          child:
-                              Image(image: AssetImage("assets/fb_icon.webp")),
-                        ),
-                        FloatingActionButton(
-                          heroTag: null,
-                          backgroundColor: Colors.transparent,
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          mini: true,
-                          elevation: 0,
-                          child: Image(
-                              image: AssetImage("assets/gmail_icon.webp")),
-                        )
                       ],
                     ),
                   ),
@@ -237,7 +229,7 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Apakah anda belum punya akun? ",
+                          "Sudah punya akun? ",
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
                               color: Colors.grey,
@@ -245,13 +237,10 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return RegisterPage();
-                            }));
+                            Navigator.pop(context);
                           },
                           child: Text(
-                            "Registrasi",
+                            "Login",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xff2ec1ac),
