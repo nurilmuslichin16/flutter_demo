@@ -3,18 +3,40 @@ import 'package:flutter/material.dart';
 class ContohPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.green,
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Text("Contoh Page"),
-      ),
-      body: Container(
-        child: Column(
-          children: [
-            Center(
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        backgroundColor: Color(0xff28df99),
+        appBar: AppBar(
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Color(0xff2ec1ac), Color(0xff28df99)],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter)),
+          ),
+          title: Text("Contoh Page"),
+          bottom: TabBar(indicatorColor: Colors.white, tabs: [
+            Tab(
+              icon: Icon(Icons.message),
+              text: "Message",
+            ),
+            Tab(
+              icon: Icon(Icons.vpn_key),
+              text: "Password",
+            ),
+            Tab(
+              icon: Icon(Icons.person),
+              text: "Profile",
+            )
+          ]),
+        ),
+        body: TabBarView(children: [
+          Center(
+            child: Container(
               child: RaisedButton(
-                  child: Text("Kembali"),
+                  color: Colors.white,
+                  child: Text("Kembali dari Tab 1"),
                   onPressed: () {
                     // Navigator.push(context, MaterialPageRoute(builder: (context) {
                     //   return MainPage();
@@ -22,14 +44,34 @@ class ContohPage extends StatelessWidget {
                     Navigator.pop(context);
                   }),
             ),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.5,
-              height: MediaQuery.of(context).size.height * 0.5,
-              color: Colors.red,
-              child: Text("Media Query * 0.5"),
-            )
-          ],
-        ),
+          ),
+          Center(
+            child: Container(
+              child: RaisedButton(
+                  color: Colors.white,
+                  child: Text("Kembali dari Tab 2"),
+                  onPressed: () {
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    //   return MainPage();
+                    // }));
+                    Navigator.pop(context);
+                  }),
+            ),
+          ),
+          Center(
+            child: Container(
+              child: RaisedButton(
+                  color: Colors.white,
+                  child: Text("Kembali dari Tab 3"),
+                  onPressed: () {
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    //   return MainPage();
+                    // }));
+                    Navigator.pop(context);
+                  }),
+            ),
+          )
+        ]),
       ),
     );
   }
